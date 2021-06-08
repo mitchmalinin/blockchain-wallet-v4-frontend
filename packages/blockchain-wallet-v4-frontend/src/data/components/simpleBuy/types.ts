@@ -23,8 +23,8 @@ import {
   SwapUserLimitsType
 } from 'blockchain-wallet-v4/src/types'
 
+import { CountryType } from '../identityVerification/types'
 import { SwapAccountType } from '../swap/types'
-import { CountryType } from './../identityVerification/types'
 import * as AT from './actionTypes'
 
 // Types
@@ -98,6 +98,7 @@ export type SBShowModalOriginType =
   | 'WelcomeModal'
   | 'WithdrawModal'
   | 'SwapNoHoldings'
+  | 'CurrencyList'
 
 export enum SBCardStateEnum {
   PENDING,
@@ -379,11 +380,7 @@ interface InitializeCheckout {
 export type StepActionsPayload =
   | {
       order: SBOrderType
-      step:
-        | 'CHECKOUT_CONFIRM'
-        | 'ORDER_SUMMARY'
-        | 'OPEN_BANKING_CONNECT'
-        | 'AUTHORIZE_PAYMENT'
+      step: 'CHECKOUT_CONFIRM' | 'ORDER_SUMMARY' | 'OPEN_BANKING_CONNECT' | 'AUTHORIZE_PAYMENT'
     }
   | {
       sellOrder: SwapOrderType
@@ -431,12 +428,7 @@ export type StepActionsPayload =
       step: 'PREVIEW_SELL'
     }
   | {
-      step:
-        | 'ADD_CARD'
-        | 'CC_BILLING_ADDRESS'
-        | 'KYC_REQUIRED'
-        | 'UPGRADE_TO_GOLD'
-        | 'LOADING'
+      step: 'ADD_CARD' | 'CC_BILLING_ADDRESS' | 'KYC_REQUIRED' | 'UPGRADE_TO_GOLD' | 'LOADING'
     }
 
 interface SetStepAction {
